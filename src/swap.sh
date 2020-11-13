@@ -39,8 +39,9 @@ esac
 
 if [ -f "$f/README.md" ]; then
     echo "$lib is active."
+elif [ -f "$active/README.md" ]; then
+    swap $f $active
 else
-    if [ -f "$active/README.md" ]; then
-        swap $f $active
-    fi
+    reset
+    swap $f $active
 fi
