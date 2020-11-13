@@ -7,7 +7,13 @@ temp="/home/zack/gctest/games/.temp"
 
 lib=$1
 
-case $1 in
+function swap {
+    mv $1/* $temp
+    mv $2/* $1
+    mv $temp/* $2
+}
+
+case $lib in
     all)
         f=$all
         ;;
@@ -19,12 +25,8 @@ case $1 in
         ;;
 esac
 
-if [ -f "$active/$1.md" ]; then
-    echo "$1 is active."
+if [ -f "$active/$lib.md" ]; then
+    echo "$lib is active."
 else
-    echo "$1 is not active"
+    echo "$lib is not active"
 fi
-
-# mv $f/* $temp
-# mv $active/* $f
-# mv $temp/* $active
