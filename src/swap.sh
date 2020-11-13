@@ -7,6 +7,7 @@ temp="/home/zack/gctest/games/.temp"
 
 lib=$1
 
+# function swaps the contents of two directories
 function swap {
     mv $1/* $temp
     mv $2/* $1
@@ -29,6 +30,6 @@ if [ -f "$f/README.md" ]; then
     echo "$lib is active."
 else
     if [ -f "$active/README.md" ]; then
-        echo "$lib is not active and dolphin library is empty"
+        swap $f $active
     fi
 fi
