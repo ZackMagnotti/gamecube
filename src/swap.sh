@@ -16,34 +16,34 @@ function swap {
     mv $temp/* $2
 }
 
+# function resets directories to the base state
 function reset {
-    for d in $all $favorites $nostalgia
+    for d in $all $favorites $nostalgia $active
     do
         if [ -f "$d/README.md" ]; then
             active_lib=$d
         fi
     done
 
-    swap $active_lib $active
+    if [$active_lib != $active]; then
+        swap $active_lib $active
+    fi
 }
+
+# Main Logic
+
+reset
+
+lib=$1
 
 case $lib in
     all)
-        f=$all
+        swap $active $all
         ;;
     favorites)
-        f=$favorites
+        swap $active $favorites
         ;;
     nostalgia)
-        f=$nostalgia
+        swap $active $nostalgia
         ;;
 esac
-
-if [ -f "$f/README.md" ]; then
-    echo "$lib is active."
-elif [ -f "$active/README.md" ]; then
-    swap $f $active
-else
-    reset
-    swap $f $active
-fi
