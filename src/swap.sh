@@ -10,12 +10,21 @@ lib=$1
 case $1 in
     all)
         f=$all
+        ;;
     favorites)
         f=$favorites
+        ;;
     nostalgia)
         f=$nostalgia
+        ;;
 esac
 
-mv $f/* $temp
-mv $active/* $f
-mv $temp/* $active
+if [ -f "$active/$1.md" ]; then
+    echo "$1 is active."
+else
+    echo "$1 is not active"
+fi
+
+# mv $f/* $temp
+# mv $active/* $f
+# mv $temp/* $active
