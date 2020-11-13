@@ -7,6 +7,8 @@ temp="/home/zack/gctest/games/.temp"
 
 lib=$1
 
+# TODO: add ability for script to reset directories if user passes no arguments
+
 # function swaps the contents of two directories
 function swap {
     mv $1/* $temp
