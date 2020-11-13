@@ -15,7 +15,7 @@ function swap {
 }
 
 function reset {
-    for d in all favorites nostalgia
+    for d in $all $favorites $nostalgia
     do
         if [ -f "$d/README.md" ]; then
             active_lib=$d
