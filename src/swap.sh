@@ -25,8 +25,10 @@ case $lib in
         ;;
 esac
 
-if [ -f "$active/$lib.md" ]; then
+if [ -f "$f/README.md" ]; then
     echo "$lib is active."
 else
-    echo "$lib is not active"
+    if [ -f "$active/README.md" ]; then
+        echo "$lib is not active and dolphin library is empty"
+    fi
 fi
