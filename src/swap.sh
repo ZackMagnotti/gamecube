@@ -5,15 +5,13 @@ favorites="/home/zack/gctest/games/favorites"
 nostalgia="/home/zack/gctest/games/nostalgia"
 temp="/home/zack/gctest/games/.temp"
 
-lib=$1
-
-# TODO: add ability for script to reset directories if user passes no arguments
-
 # function swaps the contents of two directories
 function swap {
-    mv $1/* $temp
-    mv $2/* $1
-    mv $temp/* $2
+    if [ $1 != $2 ]; then
+        mv $1/* $temp
+        mv $2/* $1
+        mv $temp/* $2
+    fi
 }
 
 # function resets directories to the base state
@@ -25,18 +23,14 @@ function reset {
         fi
     done
 
-    if [$active_lib != $active]; then
-        swap $active_lib $active
-    fi
+    swap $active_lib $active
 }
 
 # Main Logic
 
 reset
 
-lib=$1
-
-case $lib in
+case $1 in
     all)
         swap $active $all
         ;;
