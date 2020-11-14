@@ -33,11 +33,16 @@ reset
 case $1 in
     all)
         swap $active $all
+        echo "Switched to \"all\" library"
         ;;
     favorites)
         swap $active $favorites
+        echo "Switched to \"favorites\" library"
         ;;
     nostalgia)
         swap $active $nostalgia
+        echo "Switched to \"nostalgia\" library"
         ;;
+    *)
+        echo "Reset library"
 esac
