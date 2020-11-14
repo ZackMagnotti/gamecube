@@ -1,9 +1,9 @@
 
-active="/home/zack/gctest/games/active"
-all="/home/zack/gctest/games/all"
-favorites="/home/zack/gctest/games/favorites"
-nostalgia="/home/zack/gctest/games/nostalgia"
-temp="/home/zack/gctest/games/.temp"
+active="/home/zack/gamecube/games/active"
+all="/home/zack/gamecube/games/all"
+favorites="/home/zack/gamecube/games/favorites"
+nostalgia="/home/zack/gamecube/games/nostalgia"
+temp="/home/zack/gamecube/games/.temp"
 
 # function swaps the contents of two directories
 function swap {
